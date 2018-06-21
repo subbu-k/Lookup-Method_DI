@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+        
+        <!-- For Car interface provide lookup dependency injection   -->
+        <bean id="c1" class="beans.Car">
+        <lookup-method name="myCarEngine" bean="e"/>
+         </bean>
+        <bean id="e" class="beans.Engine">
+        <property name="name" value="AudiEngine"/>
+        
+        </bean>
+                 <!-- For Bus Abstract Class provide lookup dependency injection   -->
+                 <bean id="ac" class="beans.Bus">
+                 <lookup-method name="mybusEngine" bean="e1"/>
+                 </bean>
+        <bean id="e1" class="beans.Engine">
+        			<property name="name" value="TATABusEngine"/>
+        </bean>
+        <!-- For Concrete class method overriding using lookup-methods  -->
+           <bean id="cc" class="beans.Truck">
+                 <lookup-method name="myTruckEngine" bean="e2"/>
+                 </bean>
+        <bean id="e2" class="beans.Engine">
+        			<property name="name" value="TATATruckEngine"/>
+        </bean>
+</beans>
+ 
+ 
+ 
